@@ -13,7 +13,9 @@ https://github.com/inilabs/libcaer
 See bin/camera_viewer.py for a complete example.
 
 Also look at the various examples included in the various modules.
+
 Run them according to the following example:
 
-cd <repository main>
+cd \<repository main\>
+
 python -m pycaer.graphics.render
