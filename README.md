@@ -4,6 +4,7 @@ configure and get data out of AER sensors, such as the Dynamic Vision Sensor (DV
 
 ## Requirements
 libcaer <= 1.0.3 (code doesn't run on 2.0.1)
+DVS128 is the only supported camera
 
 ## Installation
 Compile and install libcaer as instructed:
