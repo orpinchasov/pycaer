@@ -141,7 +141,7 @@ class Renderer(Process):
 
 # Usage example
 if __name__ == "__main__":
-    from CameraProcesses.Demux import Demux
+    from pycaer.process.demux import Demux
 
     renderer = Renderer(multiplier=3)
     demux = Demux([renderer.get_events_queue()])
