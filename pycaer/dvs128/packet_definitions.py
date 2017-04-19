@@ -1,9 +1,9 @@
-#
-# Module to define packet structs as used by the camera itself.
-# These structs match their C definitions as found in the files:
-# - /usr/include/libcaer/events/common.h
-# - /usr/include/libcaer/events/polarity.h
-#
+""" Module to define packet structs as used by the camera itself.
+
+These structs match their C definitions as found in the files:
+- /usr/include/libcaer/events/common.h
+- /usr/include/libcaer/events/polarity.h
+"""
 
 from ctypes import Structure, POINTER, c_uint16, c_uint32, c_int32
 

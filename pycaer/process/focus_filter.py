@@ -1,15 +1,15 @@
-#
-# Module implementing a type of a focus filter on the camera input.
-# The filter gives priority to events at the focal point and forwards
-# them as a result. Other events are ignored in a probabilistic fashion.
-#
-# TODO: Future features of this module:
-# - Let the user choose the type of filter it requires. Whether 
-#   a uniform circle or a gaussian, a circle or a square, etc.
-# - Update the focal point during run without requiring to recreate
-#   the entire probability matrix
-# - Consider setting the std also during run. Currently it's not supported
-#
+""" Module implementing a type of a focus filter on the camera input.
+
+The filter gives priority to events at the focal point and forwards
+them as a result. Other events are ignored in a probabilistic fashion.
+
+TODO: Future features of this module:
+- Let the user choose the type of filter it requires. Whether 
+  a uniform circle or a gaussian, a circle or a square, etc.
+- Update the focal point during run without requiring to recreate
+  the entire probability matrix
+- Consider setting the std also during run. Currently it's not supported
+"""
 
 import numpy as np
 from scipy.stats import norm

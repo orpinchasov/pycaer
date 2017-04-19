@@ -1,9 +1,9 @@
-#
-# Module for controlling the DVS128 camera. Mainly a ctypes wrapper
-# for the functions exported by the library libcaer.so.
-# Function definitions are found in the files:
-# - /usr/include/libcaer/devices/usb.h
-#
+""" Module for controlling the DVS128 camera. Mainly a ctypes wrapper
+for the functions exported by the library libcaer.so.
+
+Function definitions are found in the files:
+- /usr/include/libcaer/devices/usb.h
+"""
 
 from event_packet import EventPacketContainer
 from packet_definitions import caerEventPacketContainer
@@ -12,7 +12,7 @@ import ctypes
 
 
 class Controller(object):
-    DVS128_DEVICE_TYPE = 0 # DVS128 device (/usr/include/libcaer/devices/dvs128.h)
+    DVS128_DEVICE_TYPE = 0  # DVS128 device (/usr/include/libcaer/devices/dvs128.h)
 
     def __init__(self, device_id=0):
         self._device_id = device_id

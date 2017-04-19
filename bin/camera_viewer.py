@@ -1,12 +1,12 @@
-#
-# Module implementing a simple video renderer which presents
-# the camera output on screen.
-# Possible optimization methods:
-# 1) Move event processing and video rendering to the same process since moving
-# the data between processse takes a lot of time.
-# 2) Accumulating data and less calls to pipe send (currently done per pixel)
-# 3) Keep track of the events timestamps and drop those which are too much in the past
-#
+""" Module implementing a simple video renderer which presents
+the camera output on screen.
+
+TODO: Possible optimization methods:
+1) Move event processing and video rendering to the same process since moving
+   the data between processse takes a lot of time.
+2) Accumulating data and less calls to pipe send (currently done per pixel)
+3) Keep track of the events timestamps and drop those which are too much in the past
+"""
 
 import pygame
 from time import time

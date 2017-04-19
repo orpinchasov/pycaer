@@ -1,14 +1,14 @@
-#
-# Module containing necessary DVS128 configuration constants.
-# They are used when configuration camera usage, etc.
-#
-# The consts are taken from the C headers. Specifically from:
-# - /usr/include/libcaer/devices/usb.h
-# - /usr/include/devices/dvs128.h
-#
-# Further documentation of the consts themselves is found in the
-# header files.
-#
+""" Module containing necessary DVS128 configuration constants.
+
+Used when configuration camera usage, etc.
+
+The consts are taken from the C headers. Specifically from:
+- /usr/include/libcaer/devices/usb.h
+- /usr/include/devices/dvs128.h
+
+Further documentation of the consts themselves is found in the
+header files.
+"""
 
 CAER_HOST_CONFIG_USB = -1
 CAER_HOST_CONFIG_DATAEXCHANGE = -2

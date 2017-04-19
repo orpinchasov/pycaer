@@ -1,12 +1,12 @@
-#
-# Module which implements a generic events handler from the camera.
-# The handler runs as a separate process with its own queue.
-# The queue should be passed to an events producer (for example,
-# the Demux module). The process is then run and reads the events
-# from the queue. Each event container packet triggers a call
-# to the handler function, which is implemented in each handler
-# locally.
-#
+""" Module which implements a generic events handler from the camera.
+
+The handler runs as a separate process with its own queue.
+The queue should be passed to an events producer (for example,
+the Demux module). The process is then run and reads the events
+from the queue. Each event container packet triggers a call
+to the handler function, which is implemented in each handler
+locally.
+"""
 
 import signal
 import ctypes

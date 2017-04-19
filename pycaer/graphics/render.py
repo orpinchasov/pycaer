@@ -1,12 +1,12 @@
-#
-# Module for rendering camera events on screen.
-# Uses the simple PyGame engine.
-# Visual processing is processor-time consuming. Currently it seems as if
-# it's best to perform it in its own process.
-#
-# TODO: Future work on the module should include:
-# - The option to remove user pixels
-#
+""" Module for rendering camera events on screen.
+
+Uses the simple PyGame engine.
+Visual processing is processor-time consuming. Currently it seems as if
+it's best to perform it in its own process.
+
+TODO:
+- The option to remove user pixels
+"""
 
 import time
 import signal
@@ -139,7 +139,7 @@ class Renderer(Process):
     def stop(self):
         self._stop_running.set()
 
-# Usage example
+
 if __name__ == "__main__":
     from pycaer.process.demux import Demux
 

@@ -1,9 +1,9 @@
-#
-# Module for unpacking of events data. Handles bits
-# in order to increase processing speed to maximum.
-#
+""" Module for unpacking of events data. Handles bits
+in order to increase processing speed to maximum.
+"""
 
 import struct
+
 
 VALID_MARK_SHIFT = 0
 VALID_MARK_MASK = 0x00000001

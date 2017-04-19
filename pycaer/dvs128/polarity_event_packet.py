@@ -1,9 +1,8 @@
-#
-# Module for the specific polarity event packets.
-#
-# Definitions are taken from:
-# - /usr/include/libcaer/events/polarity.h
-#
+""" Module for the specific polarity event packets.
+
+Definitions are taken from:
+- /usr/include/libcaer/events/polarity.h
+"""
 
 from packet_definitions import caerPolarityEvent, caerPolarityEventPacket
 

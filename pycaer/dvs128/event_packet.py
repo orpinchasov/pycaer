@@ -1,11 +1,11 @@
-#
-# Module of generic event packets and their contents.
-# All relevant classes are held in a single file according
-# to their type.
-#
-# Classes here follow the API described in:
-# - /usr/include/libcaer/events/packetContainer.h
-#
+""" Module of generic event packets and their contents.
+
+All relevant classes are held in a single file according
+to their type.
+
+Classes here follow the API described in:
+- /usr/include/libcaer/events/packetContainer.h
+"""
 
 import ctypes
 

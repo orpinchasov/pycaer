@@ -1,6 +1,5 @@
-#
-# Module implementing an ON/OFF events counter.
-#
+""" Module implementing an ON/OFF events counter.
+"""
 
 from multiprocessing import Value
 
@@ -16,7 +15,6 @@ class OnOffEventsCounter(CameraEventsHandler):
         self._off_events_count = Value('i', 0)
 
     def _handle_events(self, events):
-        #for event in events:
         for data, timestamp in events:
             valid_mark, polarity, _, _ = unpack_polarity_event_data(data)
 

@@ -1,8 +1,8 @@
-#
-# Module which implements a demuxer for the camera output.
-# Several handlers may register to the different camera events
-# and they will be called in succession for each event.
-#
+""" Module which implements a demuxer for the camera output.
+
+Several handlers may register to the different camera events
+and they will be called in succession for each event.
+"""
 
 from multiprocessing import Process, Value, Event
 import signal
@@ -12,9 +12,10 @@ from ..dvs128.consts import *
 from ..dvs128.packet_definitions import POLARITY_EVENT
 
 
-# A process which collects the camera's events and passes
-# them to registered handler functions
 class Demux(Process):
+    """A process which collects the camera's events and passes
+       them to registered handler functions.
+    """
     def __init__(self, handlers_queues):
         super(Demux, self).__init__()
 
@@ -96,7 +97,6 @@ class Demux(Process):
         self._stop_running.set()
 
 
-# Usage example
 if __name__ == '__main__':
     import time
     from on_off_events_counter import OnOffEventsCounter
