@@ -5,9 +5,10 @@
 # - /usr/include/libcaer/events/polarity.h
 #
 
-from PacketDefinitions import caerPolarityEvent, caerPolarityEventPacket
+from packet_definitions import caerPolarityEvent, caerPolarityEventPacket
 
 import ctypes
+
 
 class PolarityEvent(object):
     def __init__(self, event_address):
@@ -28,10 +29,11 @@ class PolarityEvent(object):
     def get_timestamp(self):
         return self._event.timestamp 
 
+
 class PolarityEventPacket(object):
     def __init__(self, libcaer, event_packet_address):
         self._libcaer = libcaer
-        self._event_packet = ctypes.cast(event_packet_address, \
+        self._event_packet = ctypes.cast(event_packet_address,
                                          ctypes.POINTER(caerPolarityEventPacket)).contents
 
     # NOTE: This function is now deprecated and should be replaced
@@ -43,8 +45,8 @@ class PolarityEventPacket(object):
             return None
 
         event_address = \
-            ctypes.cast(ctypes.addressof(self._event_packet.events) + \
-                            ctypes.sizeof(ctypes.POINTER(caerPolarityEvent)) * index, \
+            ctypes.cast(ctypes.addressof(self._event_packet.events) +
+                            ctypes.sizeof(ctypes.POINTER(caerPolarityEvent)) * index,
                         ctypes.POINTER(caerPolarityEvent))
 
         return PolarityEvent(event_address)

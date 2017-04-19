@@ -5,10 +5,11 @@
 # - /usr/include/libcaer/devices/usb.h
 #
 
-from EventPacket import EventPacketContainer
-from PacketDefinitions import caerEventPacketContainer
+from event_packet import EventPacketContainer
+from packet_definitions import caerEventPacketContainer
 
 import ctypes
+
 
 class Controller(object):
     DVS128_DEVICE_TYPE = 0 # DVS128 device (/usr/include/libcaer/devices/dvs128.h)
@@ -16,7 +17,7 @@ class Controller(object):
     def __init__(self, device_id=0):
         self._device_id = device_id
 
-        self._libcaer = ctypes.CDLL('/home/bnapp/code/or_libcaer/src/libcaer.so')
+        self._libcaer = ctypes.CDLL('libcaer.so')
 
         # NOTE: Some functions require configuration of their arguments and
         # return types to match the library's configuration.

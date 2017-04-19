@@ -10,6 +10,7 @@ from ctypes import Structure, POINTER, c_uint16, c_uint32, c_int32
 SPECIAL_EVENT = 0
 POLARITY_EVENT = 1
 
+
 class caerEventPacketHeader(Structure):
     # NOTE: The packing of the struct is essential for compatibility
     # with the C struct packing
@@ -22,6 +23,7 @@ class caerEventPacketHeader(Structure):
                 ("eventCapacity", c_uint32),
                 ("eventNumber", c_uint32),
                 ("eventValid", c_uint32)]
+
 
 # NOTE: This definition is currently not in use because
 # of the large overhead it ensues on the processing. A
@@ -38,6 +40,7 @@ class caerPolarityEvent(Structure):
                 ("x_addr", c_uint32, 15),
                 ("timestamp", c_int32)]
 
+
 class caerPolarityEventPacket(Structure):
     _pack_ = 1
     _fields_ = [("packetHeader", caerEventPacketHeader),
@@ -46,6 +49,7 @@ class caerPolarityEventPacket(Structure):
                 # We need to explicitly write it in order to facilitate different 
                 # calculations regarding the struct's size and more
                 ("events", caerPolarityEvent)]
+
 
 class caerEventPacketContainer(Structure):
     _pack_ = 1

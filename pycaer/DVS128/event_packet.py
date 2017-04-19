@@ -9,14 +9,15 @@
 
 import ctypes
 
-from PacketDefinitions import caerEventPacketContainer, caerEventPacketHeader
-from PacketDefinitions import POLARITY_EVENT
-from PolarityEventPacket import PolarityEventPacket
+from packet_definitions import caerEventPacketHeader
+from packet_definitions import POLARITY_EVENT
+from polarity_event_packet import PolarityEventPacket
+
 
 class EventPacketHeader(object):
     def __init__(self, libcaer, event_packet_header_address):
         self._libcaer = libcaer
-        self._event_packet_header = ctypes.cast(event_packet_header_address, \
+        self._event_packet_header = ctypes.cast(event_packet_header_address,
                                                 ctypes.POINTER(caerEventPacketHeader)).contents
 
     def get_number_of_events(self):
@@ -27,6 +28,7 @@ class EventPacketHeader(object):
         # This is the *number* of events rather than whether they
         # are valid as it might be possible to consider
         return self._event_packet_header.eventValid
+
 
 class EventPacketContainer(object):
     def __init__(self, libcaer, container_address):
@@ -51,8 +53,8 @@ class EventPacketContainer(object):
         # The access is quiet complicated. We get to the desired index
         # using simple array indexing 
         event_packet_header_address = \
-            ctypes.cast(ctypes.addressof(self._container.eventPackets) + \
-                            ctypes.sizeof(ctypes.POINTER(caerEventPacketHeader)) * index, \
+            ctypes.cast(ctypes.addressof(self._container.eventPackets) +
+                            ctypes.sizeof(ctypes.POINTER(caerEventPacketHeader)) * index,
                         ctypes.POINTER(ctypes.POINTER(caerEventPacketHeader))).contents
 
         if not event_packet_header_address:
@@ -61,7 +63,7 @@ class EventPacketContainer(object):
         # Parse the packet according to its type and return the
         # appropriate object
         if index == POLARITY_EVENT:
-            return (EventPacketHeader(self._libcaer, event_packet_header_address), \
+            return (EventPacketHeader(self._libcaer, event_packet_header_address),
                     PolarityEventPacket(self._libcaer, event_packet_header_address))
 
         return (None, None)
